@@ -12,6 +12,9 @@ public class SpawnManager : MonoBehaviour
     private GameObject _enemyprefab;
     [SerializeField]
     private GameObject _enemyContainer;
+
+
+    private bool _stopSpawn = false;
     void Start()
     {
         // check that enemies have started spawning
@@ -30,12 +33,17 @@ public class SpawnManager : MonoBehaviour
     //spawn an enemy every 5 seconds
     IEnumerator SpawnRoutine(float waitTime)
     {
-        while(true)
+        while(_stopSpawn == false)
         {
             Vector3 SpawnPos = new Vector3(Random.Range(-10.0f, 10.0f), 8, 0);
             GameObject newEnemy = Instantiate(_enemyprefab, SpawnPos, Quaternion.identity);
             newEnemy.transform.parent = _enemyContainer.transform;
             yield return new WaitForSeconds(waitTime);
         }
+    }
+
+    public void PlayerIsDead()
+    {
+        _stopSpawn = true;
     }
 }
