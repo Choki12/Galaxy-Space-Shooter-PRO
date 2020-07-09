@@ -33,7 +33,7 @@ public class Enemy : MonoBehaviour
     }
 
     //defining collision detection 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("Hit: " + other.transform.name);
 

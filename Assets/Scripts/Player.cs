@@ -90,7 +90,7 @@ public class Player : MonoBehaviour
             //Each time we fire we update our canfire which is essentially just time + rate of fire
             //we delay firing by 0.5 seconds
             _canFire = Time.time + _fireRate;
-            Instantiate(_laserprefab, new Vector3(transform.position.x, transform.position.y + 0.8f, 0), Quaternion.identity); //Quaternion.identity = object rotation 
+            Instantiate(_laserprefab, new Vector3(transform.position.x, transform.position.y + 1.05f, 0), Quaternion.identity); //Quaternion.identity = object rotation 
         
     }
 
